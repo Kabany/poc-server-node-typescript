@@ -1,7 +1,7 @@
 import express from "express"
 import { StatusCodes } from "http-status-codes"
-
 import { RequestExtended, SuccessResponse } from "tydet-core-express"
+
 import { properties } from "../../properties"
 
 export function MetaPingPong(req: RequestExtended, res: express.Response) {

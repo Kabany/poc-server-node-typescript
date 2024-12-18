@@ -4,8 +4,10 @@ import { LogLevel, Logger, LoggerMode } from "tydet-core-logger"
 import { RedisConnector } from "tydet-core-redis" */
 import { Express } from "tydet-core-express"
 
-import { MetaRouter } from "./domain/meta/meta.router"
 import { properties } from "./properties"
+
+import { MetaRouter } from "./domain/meta/meta.router"
+import { OperationsRouter } from "./domain/operations/operations.router"
 //import { EndpointRouter } from "./domain/endpoints/router"
 
 export const instance = new Context()
@@ -22,6 +24,7 @@ export async function mountServer() {
   /*await instance.mountService(AUTH_DB, new MysqlConnector({host: secrets.DB_HOST, user: secrets.DB_USER, pass: secrets.DB_PASS, db: secrets.DB_NAME}))
   await instance.mountService(AUTH_REDIS, new RedisConnector({host: secrets.REDIS_HOST})) */
   await instance.mountService(EXPRESS, new Express({port: properties.PORT, host: properties.HOST}, [
-    MetaRouter
+    MetaRouter,
+    OperationsRouter
   ]))
 }
