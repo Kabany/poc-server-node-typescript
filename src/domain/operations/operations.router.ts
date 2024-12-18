@@ -1,6 +1,9 @@
 import { Router } from 'express';
-import { OperationsList } from './operations.controller';
+import { OperationsListWithBody, OperationsListWithHeader, OperationsListWithParams, OperationsListWithQuery } from './operations.controller';
 
 export const OperationsRouter = Router();
 
-OperationsRouter.get('/operations/list/:times', OperationsList);
+OperationsRouter.get('/operations/list/params/:times', OperationsListWithParams);
+OperationsRouter.get('/operations/list/query', OperationsListWithQuery);
+OperationsRouter.post('/operations/list/body', OperationsListWithBody);
+OperationsRouter.get('/operations/list/headers', OperationsListWithHeader);
