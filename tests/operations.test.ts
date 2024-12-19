@@ -1,6 +1,3 @@
-import supertest from "supertest"
-import { Context } from "tydet-core"
-
 import { CreateList } from "../src/domain/operations/operations.service"
 
 describe("Operations Service", () => {
