@@ -1,7 +1,7 @@
 import supertest from "supertest"
 import { Context } from "tydet-core"
 
-import { CreateList } from "../domain/operations/operations.service"
+import { CreateList } from "../src/domain/operations/operations.service"
 
 describe("Operations Service", () => {
   it("Should create a list of items with a number and a string as parameters", () => {

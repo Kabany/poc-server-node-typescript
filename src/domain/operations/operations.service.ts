@@ -1,4 +1,4 @@
-export function CreateList(times: number) {
+export function CreateList(times: number): {id: number, message: string}[] {
   let list = [];
   let count = 0;
   while (times > count) {
