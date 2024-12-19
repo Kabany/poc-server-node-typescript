@@ -14,5 +14,8 @@ describe("Operations Service", () => {
     // 100th item
     expect(list[99].id).toBe(100)
     expect(list[99].message).toBe("This is the message number 100")
+    // 1000th item
+    expect(list[999].id).toBe(1000)
+    expect(list[999].message).toBe("This is the message number 1000")
   })
 })
