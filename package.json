@@ -45,7 +45,7 @@
     "tydet-core": "^1.0.4",
     "tydet-core-express": "^1.0.1",
     "tydet-core-logger": "^1.0.3",
-    "tydet-core-mysql": "^1.0.1",
+    "tydet-core-mysql": "^1.0.2",
     "tydet-core-redis": "^1.0.4",
     "tydet-utils": "^1.3.1"
   }

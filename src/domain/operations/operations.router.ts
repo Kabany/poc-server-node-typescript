@@ -1,5 +1,7 @@
 import { Router } from "express";
 import {
+  OperationsFibonacciList,
+  OperationsFibonacciSum,
   OperationsListWithBody,
   OperationsListWithHeader,
   OperationsListWithParams,
@@ -15,3 +17,6 @@ OperationsRouter.get(
 OperationsRouter.get("/operations/list/query", OperationsListWithQuery);
 OperationsRouter.post("/operations/list/body", OperationsListWithBody);
 OperationsRouter.get("/operations/list/headers", OperationsListWithHeader);
+
+OperationsRouter.get("/operations/fibonacci/sum/:number", OperationsFibonacciSum);
+OperationsRouter.get("/operations/fibonacci/list/:number", OperationsFibonacciList);
