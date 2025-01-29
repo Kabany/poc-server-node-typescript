@@ -2,7 +2,7 @@ import express from "express";
 import { StatusCodes } from "http-status-codes";
 import { RequestExtended, SuccessResponse } from "tydet-core-express";
 
-import { CreateHash, CreateJwtTokenFromString} from "./auth.service";
+import { CreateHash, CreateJwtTokenFromString, CreateTotp} from "./auth.service";
 
 /** :message as body */
 export function AuthCreateJwtTokenFromString(
@@ -22,4 +22,14 @@ export function AuthCreateHashFromString(
   let message = req.body.message
   let hash = CreateHash(message);
   return res.status(StatusCodes.OK).json(SuccessResponse(req, {hash})) as any;
+}
+
+/** :message as body */
+export function AuthCreateTotpFromString(
+  req: RequestExtended,
+  res: express.Response,
+) {
+  let message = req.body.message
+  let code = CreateTotp(message);
+  return res.status(StatusCodes.OK).json(SuccessResponse(req, {code})) as any;
 }
