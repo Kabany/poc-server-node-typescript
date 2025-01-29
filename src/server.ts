@@ -8,7 +8,7 @@ import { properties } from "./properties";
 
 import { MetaRouter } from "./domain/meta/meta.router";
 import { OperationsRouter } from "./domain/operations/operations.router";
-//import { EndpointRouter } from "./domain/endpoints/router"
+import { AuthRouter } from "./domain/auth/auth.router"
 
 export const instance = new Context();
 
@@ -31,6 +31,7 @@ export async function mountServer() {
     new Express({ port: properties.PORT, host: properties.HOST }, [
       MetaRouter,
       OperationsRouter,
+      AuthRouter
     ]),
   );
 }
