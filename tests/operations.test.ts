@@ -26,7 +26,7 @@ describe("Operations Service", () => {
     expect(FibonacciSum(5)).toBe(12)
     expect(FibonacciSum(10)).toBe(143)
     expect(FibonacciSum(50)).toBe(32951280098)
-    //expect(FibonacciSum(100)).toBe(927372692193079200000)
+    //expect(FibonacciSum(100)).toBe(927372692193078999175)
   })
 
   it("Should return a list of fibbonacci sequence", () => {
@@ -61,5 +61,8 @@ describe("Operations Service", () => {
     let list9 = FibonacciList(78)
     expect(list9.length).toBe(79)
     expect(list9[78]).toBe(8944394323791464)
+    /*let list10 = FibonacciList(100)
+    expect(list10.length).toBe(101)
+    expect(list10[100]).toBe(354224848179261915075)*/
   })
 })
