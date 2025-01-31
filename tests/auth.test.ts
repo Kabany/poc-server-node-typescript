@@ -1,10 +1,20 @@
-import { CreateHash, CreateJwtTokenFromString, CreateTotp } from "../src/domain/auth/auth.service"
+import { CreateHash, CreateJwtTokenFromString, CreateTotp, ValidateJwtToken } from "../src/domain/auth/auth.service"
 
 describe("Auth Service", () => {
   it("Should create a JWT token from a simple string using the default algorithm HS256", () => {
     let message = "Hello World!"
     let token = CreateJwtTokenFromString(message)
-    expect(token).toBe("eyJhbGciOiJIUzI1NiJ9.SGVsbG8gV29ybGQh.9Psf6DZ5pbHc97BaRVh3IXORqNaS3rd2UngUlOT_FUQ")
+    expect(token).toBe("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.IuiP9G4uZRbreQi4qWaZFlZMnvEtHig0AmYx-8NT7Q4")
+  })
+
+  it("Should create a JWT token, then decode it and must match with the original message", () => {
+    let message = "Hello World!"
+    let token = CreateJwtTokenFromString(message)
+    let decoded = ValidateJwtToken(token)
+    expect(message).toBe(decoded)
+
+    // VALIDATE JWT FROM RUBY
+    expect(decoded).toBe(ValidateJwtToken("eyJub1RpbWVzdGFtcCI6ZmFsc2UsImFsZyI6IkhTMjU2In0.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.8mL5iY68I87VLbNe1r9nVkpck4qwbsm1Jh5Oxmg6RTk"))
   })
 
   it("Should create a Hash token from a simple string using the SHA512 Hex algorithm", () => {
