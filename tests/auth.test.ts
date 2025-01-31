@@ -14,7 +14,7 @@ describe("Auth Service", () => {
     expect(message).toBe(decoded)
 
     // VALIDATE JWT FROM RUBY
-    expect(decoded).toBe(ValidateJwtToken("eyJub1RpbWVzdGFtcCI6ZmFsc2UsImFsZyI6IkhTMjU2In0.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.8mL5iY68I87VLbNe1r9nVkpck4qwbsm1Jh5Oxmg6RTk"))
+    expect(decoded).toBe(ValidateJwtToken("eyJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.kiLVWiCroYBS-sgSmTP_u74OmiLt_l3UeUBGfM-lmE8"))
   })
 
   it("Should create a Hash token from a simple string using the SHA512 Hex algorithm", () => {
