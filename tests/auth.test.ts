@@ -4,7 +4,7 @@ describe("Auth Service", () => {
   it("Should create a JWT token from a simple string using the default algorithm HS256", () => {
     let message = "Hello World!"
     let token = CreateJwtTokenFromString(message)
-    expect(token).toBe("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.IuiP9G4uZRbreQi4qWaZFlZMnvEtHig0AmYx-8NT7Q4")
+    expect(token).toBe("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.q_OAmeTO_BJ0X1_6SMzGEat8qHvcMZ6LtPhLg8yKXR4")
   })
 
   it("Should create a JWT token, then decode it and must match with the original message", () => {
@@ -13,10 +13,10 @@ describe("Auth Service", () => {
     let decoded = ValidateJwtToken(token)
     expect(message).toBe(decoded)
 
-    // VALIDATE JWT FROM RUBY
-    expect(decoded).toBe(ValidateJwtToken("eyJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.kiLVWiCroYBS-sgSmTP_u74OmiLt_l3UeUBGfM-lmE8"))
-    // VALIDATE JWT FROM Swift
-    expect(decoded).toBe(ValidateJwtToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.mahh4kwbMrH_-7Np_G88KLJmkW5GtFYzbLiWAfpRiJQ"))
+    // From Ruby & Python
+    expect(decoded).toBe(ValidateJwtToken("eyJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.yX3llK_oxmp-qhJ7l-B0AL8wOlzCzsDHlw7xtCU2d4s"))
+    // From Swift
+    expect(decoded).toBe(ValidateJwtToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSGVsbG8gV29ybGQhIn0.Qn62lWxZ5VZKovUbE8KTu_xGeDSp739uapAuBDK360Y"))
   })
 
   it("Should create a Hash token from a simple string using the SHA512 Hex algorithm", () => {

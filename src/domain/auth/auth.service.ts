@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import shajs from "sha.js";
 import { TOTP } from "totp-generator";
 
-const FIRST_JWT_SECRET = "ThisIsASuperSecret"
+const FIRST_JWT_SECRET = "ThisIsAVeryLongStringToAlignWithTheIDX10720RequirementForDotNetWebApps"
 
 export function CreateJwtTokenFromString(text: string) {
   return jwt.sign({message: text}, FIRST_JWT_SECRET, {noTimestamp: true})
